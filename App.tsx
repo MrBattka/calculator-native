@@ -10,7 +10,7 @@ const App: React.FC = (): React.ReactElement => {
   const [action, setAction] = useState<string>('')
   const [editMode, setEditMode] = useState(false)
 
-  const returnNumber = (number: string) => {
+  const returnNumber = (number: string): string | void => {
     if (num.length <= 9) {
       if (num === '0' && number !== '.') {
         setNum(num.replace('0', number))
@@ -22,44 +22,44 @@ const App: React.FC = (): React.ReactElement => {
     }
   }
 
-  const addition = (firstNum: string) => {
+  const addition = (firstNum: string): void => {
     setFirstNum(firstNum)
     setNum('0')
     setAction('addition')
   }
 
-  const subtraction = (firstNum: string) => {
+  const subtraction = (firstNum: string): void => {
     setFirstNum(firstNum)
     setNum('0')
     setAction('subtraction')
   }
 
-  const multiplication = (firstNum: string) => {
+  const multiplication = (firstNum: string): void => {
     setFirstNum(firstNum)
     setNum('0')
     setAction('multiplication')
   }
 
-  const division = (firstNum: string) => {
+  const division = (firstNum: string): void => {
     setFirstNum(firstNum)
     setNum('0')
     setAction('division')
   }
 
-  const percent = (firstNum: string) => {
+  const percent = (firstNum: string): void => {
     setFirstNum(firstNum)
     setNum('0')
     setAction('percent')
   }
 
-  const signChangeAction = () => {
+  const signChangeAction = (): void => {
     if (num !== '0') {
       const minus = Number(num) * -1
       setNum(minus.toString())
     }
   }
 
-  const signChange = () => {
+  const signChange = (): void => {
     setEditMode(!editMode)
   }
 
@@ -75,7 +75,7 @@ const App: React.FC = (): React.ReactElement => {
     setNum(calculate(num, firstNum, secondNum, action))
   }, [secondNum])
 
-  const reset = () => {
+  const reset = (): void => {
     setAction('')
     setNum('0')
     setFirstNum('0')
